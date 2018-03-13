@@ -66,8 +66,13 @@ gulp.task('build', function() {
 });
 
 
+gulp.task("browserSync", function() {
+  browserSync.init({ server: {baseDir: './'}, })
+});
+
 gulp.task('serve', ['watch']);
 
 gulp.task("default", function() {
+  connect.server({port: 3000});
   gulp.start(['build', 'watch'])
 });
