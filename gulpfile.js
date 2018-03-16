@@ -4,8 +4,9 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   concat = require('gulp-concat'),
   rename = require('gulp-rename'),
-   	sass = require('gulp-sass'),
-   	maps = require('gulp-sourcemaps'),
+    sass = require('gulp-sass'),
+    csso = require('gulp-csso'),
+    maps = require('gulp-sourcemaps'),
      del = require('del'),
 imagemin = require('gulp-imagemin'),
 sequence = require('run-sequence'),
@@ -41,6 +42,7 @@ gulp.task('styles', function() {
 				.pipe(maps.init())
 				.pipe(sass())
 				.pipe(maps.write('./'))
+				.pipe(csso())
 				.pipe(rename('all.min.css'))
 				.pipe(gulp.dest('dist/styles'))
 				.pipe(connect.reload());
