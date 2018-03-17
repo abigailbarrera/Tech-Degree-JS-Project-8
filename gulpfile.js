@@ -41,8 +41,8 @@ gulp.task('styles', function() {
 	return gulp.src(["sass/**.scss"])
 				.pipe(maps.init())
 				.pipe(sass())
-				.pipe(maps.write('./'))
 				.pipe(csso())
+				.pipe(maps.write('./'))
 				.pipe(rename('all.min.css'))
 				.pipe(gulp.dest('dist/styles'))
 				.pipe(connect.reload());
